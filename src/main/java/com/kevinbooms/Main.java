@@ -17,8 +17,12 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
+    @GetMapping("/")
+    public String hello() {
+        return "Just try to do some work.";
+    }
     // this method will override the Whitelabel error page
-    @GetMapping("/greet")
+    @GetMapping("/json_test")
     public GreetResponse greet() {
         GreetResponse response = new GreetResponse(
                 "Go ahead. Make my day.",
