@@ -11,3 +11,7 @@ Used Spring Inilializr (https://start.spring.io/) to set up project:
 	+ rewrote main Spring Application class, standardized a greeting, set the environment up to playtest JSON using records
 	+ deleted the Spring Application test within the test folder. As far as I can tell it doesn't really do anything.
 - Wrote an example JSON response and used @GetMapping to set the path where it can be accessed in the browser.
+
+Day 2:
+
+Application is set up to implement JPA. I have written a docker-compose.yml file. But now it seems I need to set up Docker.
