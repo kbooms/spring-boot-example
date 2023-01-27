@@ -16,6 +16,10 @@ Used Spring Inilializr (https://start.spring.io/) to set up project:
 
 Application is set up to implement JPA. I have written a docker-compose.yml file. But now it seems I need to set up Docker. The Terminal can be found in the toolbar in the bottom of the IDE.
 
+### Day 3:
+
+Documenting the process of setting up Docker on the computer. The goal is to get it installed a runnable within the IntelliJ terminal window. I think I'm almost there.
+
 #### [ --- Docker Notes --- ] (eventually separate this insto a different file)
 Docker is a container technology: A tool for creating and managing containers.
 
@@ -35,3 +39,17 @@ Why containers?
 - Low impact on OS, very fast, minimal disk space usage
 - Sharing, re-building, and distribution is easy
 - Encapsulated apps/environments instead of "whole machines"
+
+Setting up Docker:
+- go to: https://www.docker.com
+- From the menu choose: 'Developers' > 'Docs'
+- On that page choose 'Download and Install'
+- Choose Docker Desktop for your OS *(I'm on Windows)*
+- **BEFORE** downloading and installing Docker Desktop make sure you have:
+	+ WSL 2 for Windows enabled
+		* Hyper-V: From Start Menu search "Settings" > "Apps" > "Optional Features" > "Related Settings" > "More Windows Features"
+		* Check on "Windows Hypervisor Platform"
+	+ Hyper-V backend & Windows containers enabled
+		* Same path into "More Windows Features"
+		* Check on "Virtual Machine Platform"
+	+ **NOTE**: changing these settings will require a restart of your computer.
