@@ -75,3 +75,18 @@ With the above configuration file written, we try to run the application and we 
 
 Our **actual database** hasn't been created yet. Next step is to do that.
 
+- Go into the Terminal within IntelliJ
+- execute command `docker ps` to verify the containers existence
+![docker terminal commands](images/docker_ps.png)
+- execute command `docker exec -it postgres` bash
+![docker terminal commands](images/docker_exec_-it_postgres_bash.png)
+	- this will allow us to execute shell commands within the container itself. In this instance "postgres" is the name of the container
+- `psql -U postgres`	
+	- `psql` is the client for connecting to a postgres database
+	- U is for user
+	- postgres is currently the default user on my system
+![psql commands](images/psql_-U_postgres.png)
+
+To create the database we enter the command `CREATE DATABASE customer`. If successful, we will be returned the message `CREATE DATABASE` and given back the command prompt
+
+Our database is created.

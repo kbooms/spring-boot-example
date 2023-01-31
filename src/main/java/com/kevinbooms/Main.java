@@ -16,9 +16,13 @@ public class Main {
 
     @GetMapping("/")
     public String hello() {
-        return "Just try to do some work.";
+        return "You've got this. Just try to do your best.";
     }
-    // this method will override the Whitelabel error page
+    // this method will override the Whitelabel error page. It is called by default because we have declared this
+    // application as a Rest Controller with the @RestController annotation
+
+
+    // this code below is a JSON test. I'll leave it in for now.
     @GetMapping("/json_test")
     public GreetResponse greet() {
         GreetResponse response = new GreetResponse(
