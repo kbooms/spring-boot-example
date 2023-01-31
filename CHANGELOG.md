@@ -68,3 +68,10 @@ Next is to configure the application properties
 ![application.yml configuration](images/application-yml-config.png)
 
 It is currently my understanding that indentation **is important** when writing yml configuration files.
+
+With the above configuration file written, we try to run the application and we get this error:
+>
+`org.postgresql.util.PSQLException: FATAL: database "customer" does not exist`
+
+Our **actual database** hasn't been created yet. Next step is to do that.
+
