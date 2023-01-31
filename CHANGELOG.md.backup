@@ -67,4 +67,4 @@ Next is to configure the application properties
 
 ![application.yml configuration](images/application-yml-config.png)
 
-It is currently my understanding that indentation **is important** when writing yml configuration files.
+

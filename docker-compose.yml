@@ -1,3 +1,5 @@
+# the goal of this file is to create a Postgres Instance in a Docker Container
+
 services:
   db:
     container_name: postgres
@@ -14,9 +16,9 @@ services:
       - db
     restart: unless-stopped
 
-  networks:
-    db:
-      driver: bridge
+networks:
+  db:
+    driver: bridge
 
-  volumes:
-    db:
+volumes:
+  db:
