@@ -38,11 +38,12 @@ Spring Data JPA is also dependent on this driver
 - Open pom.xml
 - add the following dependency below to the dependencies section
 - reload the Maven project
+ 	
 >
-	<dependency>
-		<groupId>org.postgresql</groupId>
-		<artifactId>postgresql</artifactId>
-		<scope>runtime</scope>
+	<dependency>  
+		<groupId>org.postgresql</groupId>  
+		<artifactId>postgresql</artifactId>  
+		<scope>runtime</scope>  
 	</dependency>
 
 > the above adds the JDBC Driver for postgres.
@@ -90,3 +91,13 @@ Our **actual database** hasn't been created yet. Next step is to do that.
 To create the database we enter the command `CREATE DATABASE customer`. If successful, we will be returned the message `CREATE DATABASE` and given back the command prompt
 
 Our database is created. Next steps are to make entities.
+
+---
+
+To establish the "customer" class as an entity we first add the `@Entity` annotation to our model class. Entities need ID's and these ID's need to be generated automatically in a sequence.  
+
+The following annotations will help us set that up  
+`@Id` annotates the property below it as an ID  
+`@SequenceGenerator` establishes a value generator. It requires a name and a sequence name. In this case we've named both of them `customer_id_sequence`  
+`@GeneratedValue` sets up the value generation strategy. We've declared the strategy as `GenerationType.SEQUENCE` and giving it the name of our `customer_id_sequence`
+

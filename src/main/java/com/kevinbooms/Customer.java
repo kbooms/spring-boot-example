@@ -1,8 +1,20 @@
 package com.kevinbooms;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
 public class Customer {
+    @Id                                                 // label this Integer id as an "Id" for table rows
+    @SequenceGenerator(                                 // in order to automate this field we establish a sequence generator
+            name = "customer_id_sequence",              // we give it a name
+            sequenceName = "customer_id_sequence"       // we give the actual sequence the same name
+    )
+    @GeneratedValue(                                    // we're establishing a strategy for this generated value
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_id_sequence"          // we're giving it the name of our sequence
+    )
     private Integer id;
     private String name;
     private String email;
