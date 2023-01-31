@@ -89,4 +89,4 @@ Our **actual database** hasn't been created yet. Next step is to do that.
 
 To create the database we enter the command `CREATE DATABASE customer`. If successful, we will be returned the message `CREATE DATABASE` and given back the command prompt
 
-Our database is created.
+Our database is created. Next steps are to make entities.
