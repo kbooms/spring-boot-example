@@ -12,13 +12,19 @@ Used Spring Inilializr (https://start.spring.io/) to set up project:
 	+ deleted the Spring Application test within the test folder. As far as I can tell it doesn't really do anything.
 - Wrote an example JSON response and used @GetMapping to set the path where it can be accessed in the browser.
 
+---
+
 ### Day 2:
 
 Application is set up to implement JPA. I have written a docker-compose.yml file. But now it seems I need to set up Docker. The Terminal can be found in the toolbar in the bottom of the IDE.
 
+---
+
 ### Day 3:
 
 Documenting the process of setting up Docker on the computer. The goal is to get it installed and runnable within the IntelliJ terminal window. I think I'm almost there.
+
+---
 
 ### Day 4:
 Docker is set up now on my machine. Had to do a lot of extra configuration to get it to run, that is now being documented in a seperate file. As such, the docker notes originally in this changelog have been migrated.
@@ -39,12 +45,12 @@ Spring Data JPA is also dependent on this driver
 - add the following dependency below to the dependencies section
 - reload the Maven project
  	
->
-	<dependency>  
+
+>	`<dependency>  
 		<groupId>org.postgresql</groupId>  
 		<artifactId>postgresql</artifactId>  
 		<scope>runtime</scope>  
-	</dependency>
+	</dependency>`
 
 > the above adds the JDBC Driver for postgres.
 
@@ -71,33 +77,43 @@ Next is to configure the application properties
 It is currently my understanding that indentation **is important** when writing yml configuration files.
 
 With the above configuration file written, we try to run the application and we get this error:
->
+
 `org.postgresql.util.PSQLException: FATAL: database "customer" does not exist`
 
 Our **actual database** hasn't been created yet. Next step is to do that.
 
 - Go into the Terminal within IntelliJ
-- execute command `docker ps` to verify the containers existence
+- execute command `docker ps` to verify the containers existence  
 ![docker terminal commands](images/docker_ps.png)
-- execute command `docker exec -it postgres` bash
+- execute command `docker exec -it postgres` bash  
 ![docker terminal commands](images/docker_exec_-it_postgres_bash.png)
 	- this will allow us to execute shell commands within the container itself. In this instance "postgres" is the name of the container
 - `psql -U postgres`	
 	- `psql` is the client for connecting to a postgres database
 	- U is for user
-	- postgres is currently the default user on my system
+	- postgres is currently the default user on my system  
 ![psql commands](images/psql_-U_postgres.png)
 
-To create the database we enter the command `CREATE DATABASE customer`. If successful, we will be returned the message `CREATE DATABASE` and given back the command prompt
+To create the database we enter the command `CREATE DATABASE customer`.  
+If successful, we will be returned the message `CREATE DATABASE` and given back the command prompt  
 
-Our database is created. Next steps are to make entities.
+Our database is created. Next steps are to make entities.  
 
 ---
 
-To establish the "customer" class as an entity we first add the `@Entity` annotation to our model class. Entities need ID's and these ID's need to be generated automatically in a sequence.  
+### Day 5
+
+To establish the "customer" class as an entity we first add the `@Entity` annotation to our model class.  
+Entities need ID's and these ID's need to be generated automatically in a sequence.  
 
 The following annotations will help us set that up  
-`@Id` annotates the property below it as an ID  
+> `@Id` annotates the property below it as an ID  
 `@SequenceGenerator` establishes a value generator. It requires a name and a sequence name. In this case we've named both of them `customer_id_sequence`  
 `@GeneratedValue` sets up the value generation strategy. We've declared the strategy as `GenerationType.SEQUENCE` and giving it the name of our `customer_id_sequence`
+
+Next goal is to implement the customer repository and CRUD operations.  
+
+---
+
+### Day 6
 
