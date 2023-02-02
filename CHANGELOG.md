@@ -157,3 +157,10 @@ From here we can manually input data to the table:
 Reloading the application, and testing in Postman should now show 3 rows, each with properly incrementing Id's.
 
 #### POST Requests  
+Within the main class:  
+- We set a record called `NewCustomerRequest` with the name, age, and email properties
+- Created an `addCustomer()` method  which takes the `NewCustomerRequest` record and creates a customer object (entity/model) and uses the repository method `.save()`
+- Added `@PostMapping` and set the `request` object with `@RequestBody`
+- Testing in Postman shows 200, successfully saving to database
+
+#### DELETE Requests

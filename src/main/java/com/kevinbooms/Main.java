@@ -2,9 +2,7 @@ package com.kevinbooms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,9 +20,37 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping()
+    @GetMapping
     public List<Customer> getCustomers() {
         return customerRepository.findAll();
     }
 
+    // using records we can quickly set up an immutable class
+    record NewCustomerRequest (
+            String name,
+            String email,
+            Integer age
+    ) { // this makes POST requests easy
+    }
+
+    @PostMapping
+    public void addCustomer(@RequestBody NewCustomerRequest request) {
+        // method starts by taking in the request, creates a new Customer entity from it
+        // and then populates the Entity with the data received via Setters
+        // the method then saves the new customer to the repository
+        Customer customer = new Customer();
+        customer.setName(request.name());
+        customer.setEmail(request.email());
+        customer.setAge(request.age());
+        customerRepository.save(customer);
+    }
+
+    @DeleteMapping("{customerId}")
+    public void deleteCustomer(@PathVariable("customerId") Integer id) {
+        customerRepository.deleteById(id);
+    }
+
+    // implement the ability to delete a customer
+
+    // implement the ability to update an existing customer
 }
