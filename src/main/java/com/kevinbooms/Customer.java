@@ -9,7 +9,8 @@ public class Customer {
     @Id                                                 // label this Integer id as an "Id" for table rows
     @SequenceGenerator(                                 // in order to automate this field we establish a sequence generator
             name = "customer_id_sequence",              // we give it a name
-            sequenceName = "customer_id_sequence"       // we give the actual sequence the same name
+            sequenceName = "customer_id_sequence",      // we give the actual sequence the same name
+            allocationSize = 1                          // default is 50
     )
     @GeneratedValue(                                    // we're establishing a strategy for this generated value
             strategy = GenerationType.SEQUENCE,
